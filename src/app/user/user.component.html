@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="panel panel-primary" style="margin: 40px;" id="registerConfirm">
+    <div class="panel-heading">
+        <b><h2>Registration Confirmation</h2></b>
+        <hr>
+        <p style="color: gold;">Thank you for registering. The admin will contact you shortly with your username and password</p>
+    </div>
+    <div class="panel-body">
+        <div class="data" style="align-content: center;">
+            <dt>Name: </dt><dd>{{user.firstName}} {{user.lastName}}</dd> <br>
+            <dt>Business Unit: </dt><dd>{{user.businessUnit}}</dd> <br>
+            <dt>Title: </dt><dd>{{user.title}}</dd> <br>
+            <dt>E-mail: </dt><dd>{{user.email}}</dd> <br>
+            <dt>Telephone: </dt><dd>{{user.telephone}}</dd> <br>
+            <dt>Address1: </dt><dd>{{user.address1}}</dd> <br>
+            <dt>Address2: </dt><dd>{{user.address2}}</dd> <br>
+            <dt>City: </dt><dd>{{user.city}}</dd> <br>
+            <dt>State: </dt><dd>{{user.state}}</dd> <br>
+            <dt>Zip: </dt><dd>{{user.zip}}</dd> <br>
+            <dt>Country: </dt><dd>{{user.country}}</dd> <br>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="form-group">
+            <button (click)="PrintContent()">Print</button> 
+            <button (click)="editUser()">Edit</button> 
+            <button (click)="returnHomePage()">Return to home page</button>
+        </div>
+    </div>
+</div>

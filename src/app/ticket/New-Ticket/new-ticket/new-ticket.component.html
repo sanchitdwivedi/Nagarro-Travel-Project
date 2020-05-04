@@ -1,0 +1,90 @@
+<app-home></app-home>
+
+<form class="was-validated" #f="ngForm" (ngSubmit)="createTicket(f)">
+    <div class="form-group">
+        <label for="requestType">Request Type</label>
+        <select id="requestType" class="form-control" name="requestType" [(ngModel)]="ticket.requestType" required>
+            <option selected>Travel Tickets</option>
+            <option>Hotel Stay</option>
+            <option>Visa</option>
+            <option>Work Permit</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="priority">Priority</label>
+        <select id="priority" class="form-control" name="priority" [(ngModel)]="ticket.priority" required>
+            <option selected>Normal</option>
+            <option>Urgent</option>
+            <option>Intermediate</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="travelCity">Travel City</label>
+        <select id="travelCity" class="form-control" name="travelCity" [(ngModel)]="ticket.travelCity" required>
+            <option selected>Gurgaon</option>
+            <option>Nangal</option>
+            <option>Una</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="fromLocation">From Location</label>
+        <select id="fromLocation" class="form-control" name="fromLocation" [(ngModel)]="ticket.fromLocation" required>
+            <option selected>Gurgaon</option>
+            <option>Nangal</option>
+            <option>Una</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Travel Start Date</label>
+      <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="ticket.startDate" required>
+    </div>
+    <div class="form-group">
+        <label for="endDate">Travel End Date - Put Tentative if exact not known</label>
+        <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="ticket.endDate" required>
+      </div>
+    <div class="form-group">
+        <label for="passportNo">Passport Number</label>
+        <input type="number" class="form-control" id="passportNo" name="passportNo" [(ngModel)]="ticket.passportNo" required>
+    </div>
+    <div class="form-group">
+        <label for="projectName">Project Name</label>
+        <input type="text" class="form-control" id="projectName" name="projectName" [(ngModel)]="ticket.projectName" required>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="nagarro" value="Nagarro" name="expenseBornBy" [(ngModel)]="ticket.expenseBornBy" required>
+            <label class="custom-control-label" for="nagarro">Nagarro</label>
+        </div>
+        <div class="custom-control custom-radio mb-3">
+            <input type="radio" class="custom-control-input" id="client" value="Client" name="expenseBornBy" [(ngModel)]="ticket.expenseBornBy" required>
+            <label class="custom-control-label" for="client">Client</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="travelApproverName">Travel Approver Name - Manager/BU Head: </label>
+        <input type="text" class="form-control" id="travelApproverName" name="travelApproverName" [(ngModel)]="ticket.travelApproverName" maxlength="100" required>
+    </div>
+    <div class="form-group">
+        <label for="expectedDuration">Travel Approver Name - Manager/BU Head: </label>
+        <input type="text" class="form-control" id="expectedDuration" name="expectedDuration" [(ngModel)]="ticket.expectedDuration" maxlength="100">
+    </div>
+    <div class="form-group">
+        <label for="maxAllowedAmount">Any Upper Bound on the allowed amount? If yes, Specify: </label>
+        <input type="text" class="form-control" id="maxAllowedAmount" name="maxAllowedAmount" [(ngModel)]="ticket.maxAllowedAmount" maxlength="500">
+    </div>
+    <div class="form-group">
+        <label for="additionalDetails">Any additional details: </label>
+        <input type="text" class="form-control" id="additionalDetails" name="additionalDetails" [(ngModel)]="ticket.additionalDetails" maxlength="1000">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" [disabled]="f.form.invalid" name="commit" class="btn btn-lg btn-primary btn-block" value="Submit">
+    </div>
+    
+</form>
+
+<div class="errorMessage">
+    {{msg}}
+</div>
+

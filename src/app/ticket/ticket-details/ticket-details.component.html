@@ -1,0 +1,44 @@
+<app-home></app-home>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="panel panel-primary" style="margin: 40px;">
+    <div class="panel-heading">
+        <b><h2>Ticket Details</h2></b>
+    </div>
+    <div class="panel-body">
+        <div class="data" style="align-content: center;">
+            <dt>Request Type: </dt><dd>{{ticket.requestType}}</dd> <br>
+            <dt>Priority: </dt><dd>{{ticket.priority}}</dd> <br>
+            <dt>Travel City: </dt><dd>{{ticket.travelCity}}</dd> <br>
+            <dt>From Location City: </dt><dd>{{ticket.fromLocation}}</dd> <br>
+            <dt>Travel Start Date: </dt><dd>{{ticket.startDate | date}}</dd> <br>
+            <dt>Travel End Date: </dt><dd>{{ticket.endDate | date}}</dd> <br>
+            <dt>Passport Number: </dt><dd>{{ticket.passportNo}}</dd> <br>
+            <dt>Project Name: </dt><dd>{{ticket.projectName}}</dd> <br>
+            <dt>Expense Borne by: </dt><dd>{{ticket.expenseBornBy}}</dd> <br>
+            <dt>Travel Approver Name: </dt><dd>{{ticket.travelApproverName}}</dd> <br>
+            <dt>Expected Duration of Travel: </dt><dd>{{ticket.expectedDuration}}</dd> <br>
+            <dt>Any upper bound on the allowed amount: </dt><dd>{{ticket.maxAllowedAmount}}</dd> <br>
+            <dt>Any additional details: </dt><dd>{{ticket.additionalDetails}}</dd> <br>
+            <dt>Status: </dt><dd>{{ticket.status}}</dd> <br>
+            <dt>Comment by Admin: </dt><dd>{{ticket.commentByAdmin}}</dd> <br>
+            <dt>Files uploaded by Admin: </dt> <br>
+            <div *ngIf="uploadedFiles.length">
+                <div class="list-group" *ngFor="let file of uploadedFiles;">
+                    <button type="button" (click)="download(file)" class="list-group-item list-group-item-action">{{file.fileName}}</button>
+                    </div>
+            </div> 
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="form-group">
+            <button (click)="editTicket()">Edit</button>
+            <div class="errorMessage" style="float: right;">
+                <p style="color: red;">{{msg}}</p>
+            </div>
+        </div>
+    </div>
+</div>
