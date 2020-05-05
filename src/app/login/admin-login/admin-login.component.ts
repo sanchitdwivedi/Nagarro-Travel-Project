@@ -25,27 +25,12 @@ export class AdminLoginComponent implements OnInit {
   }
 
   public adminLogin(f: NgForm){
-    // this.admin.email = f.value.email;
-    // this.admin.password = f.value.password;
-    // this.adminService.loginAdminFromRemote(this.admin).subscribe(
-    //   data => {
-    //     // console.log(data)
-    //     sessionStorage.setItem('token', 'admin-login')
-    //     this.adminService.setCurrentAdminId(data.adminId)
-    //     this.router.navigateByUrl('/admin/home');
-    //   },
-    //   error => {
-    //     console.log(error)
-    //   }
-    // )
-
     this.authRequest = {
       "userName": f.value.email,
       "password": f.value.password
     }
     this.adminService.generateToken(this.authRequest).subscribe(
       data => {
-        console.log("Token => " + data)
         this.authService.storeAdminJwtToken(data)
         let adminId = Number(jwt_decode(data).jti);
         this.adminService.setCurrentAdminId(adminId)

@@ -35,7 +35,6 @@ export class AuthService {
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('ticketId');
     sessionStorage.removeItem('clickedTicketId');
-    // this.userId = null;
   }
 
   public isLoggedInAdmin() {

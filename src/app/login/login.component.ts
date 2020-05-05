@@ -13,7 +13,6 @@ import * as jwt_decode from 'jwt-decode';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  // user = new User();
   msg = '';
   authRequest: any;
  
@@ -26,26 +25,6 @@ export class LoginComponent implements OnInit {
   }
  
   loginUser(f: NgForm){
-    // this.user.email = f.value.email;
-    // this.user.password = f.value.password;
-    // this.registrationService.loginUserFromRemote(this.user).subscribe(
-    //   data => {
-    //     // console.log(data)
-    //     // console.log("response recieved"),
-    //     sessionStorage.setItem('token', 'abc-qwe')
-    //     this.userService.setCurrentUserId(data.userId)
-    //     // sessionStorage.setItem('id', data.userId)
-    //     // this.userService.setLoggedInUserId(data.userId)
-    //     // this.userService.setLoggedInUserId(data.userId)
-    //     this._router.navigate(['/home'])
-    //   },
-    //   error => {
-    //     // console.log(error)
-    //     // console.log("exception occured");
-    //     this.msg = 'Bad Credentials, Please Enter Email and Password';
-    //   }
-    // )
-
     this.authRequest = {
       "userName": f.value.email,
       "password": f.value.password

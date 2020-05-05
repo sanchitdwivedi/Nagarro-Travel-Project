@@ -66,7 +66,6 @@ export class DetailsComponent implements OnInit {
   upload() {
   
     this.currentFile = this.selectedFiles.item(0);
-    console.log(this.currentFile)
     this.uploadFileService.upload(this.currentFile).subscribe(
       event => {
         if (event.type === HttpEventType.UploadProgress) {

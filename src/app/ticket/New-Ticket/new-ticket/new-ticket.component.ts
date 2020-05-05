@@ -1243,11 +1243,6 @@ export class NewTicketComponent implements OnInit {
     private ticketService: TicketsService) { }
 
   ngOnInit(): void {
-    // this.isLoggedIn = this.userService.isLoggedIn();
-    // // console.log('Logged in ->' + this.isLoggedIn);
-    // if(!this.isLoggedIn){
-    //   this.router.navigate(['/login'])
-    // }
     this.ticketService.getUserTicketById('ticketId').subscribe(
       data => {
         this.ticket = data;
@@ -1265,16 +1260,11 @@ export class NewTicketComponent implements OnInit {
     else{
       this.ticketService.createUserTicket(this.ticket).subscribe(
       data => {
-        // console.log(data)
-        // console.log("response recieved"),
-        // this.router.navigate(['/user'])
         this.ticketService.setCurrentTicketId(data.ticketNo);
         this.msg = 'Ticket created'
         this.router.navigate(['/home/newTicket/confirm'])
       },
       error => {
-        // console.log(error)
-        // console.log("exception occured");
         this.msg = 'Error while creating ticket please try again';
       }
       )  
@@ -1290,8 +1280,6 @@ export class NewTicketComponent implements OnInit {
       }
     ),
     error => {
-      // console.log(error)
-      // console.log("exception occured");
       this.msg = 'Error while updating ticket please try again';
     }
   }
@@ -1305,7 +1293,7 @@ export class NewTicketComponent implements OnInit {
     this.ticket.endDate = f.value.endDate
     this.ticket.passportNo = f.value.passportNo
     this.ticket.projectName = f.value.projectName
-    this.ticket.expenseBornBy = f.value.expenseBornBy        // change later
+    this.ticket.expenseBornBy = f.value.expenseBornBy
     this.ticket.travelApproverName = f.value.travelApproverName
     this.ticket.expectedDuration = f.value.expectedDuration
     this.ticket.maxAllowedAmount = f.value.maxAllowedAmount

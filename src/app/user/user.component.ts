@@ -13,8 +13,6 @@ import { AuthService } from '../auth.service';
 export class UserComponent implements OnInit {
 
   user: User;
-  
-  // isLoggedIn = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -23,17 +21,11 @@ export class UserComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit(): void {
-    // this.isLoggedIn = this.userService.isLoggedIn();
-    // if(!this.isLoggedIn){
-    //   this.router.navigate(['/login'])
-    // }
     this.userService.getLoggedInUser().subscribe(
       data => {
         this.user = data;
       },
       error => {
-        // console.log(error)
-        // console.log("exception occured");
         this.router.navigate(['/login'])
       }
     )

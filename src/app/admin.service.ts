@@ -12,10 +12,6 @@ export class AdminService {
 
   constructor(private _http : HttpClient) { }
 
-  // public loginAdminFromRemote(admin: Admin):Observable<any>{
-  //   return this._http.post("http://localhost:8080/api/adminLogin", admin);
-  // }
-
   public generateToken(request) {
     return this._http.post<string>("http://localhost:8080/authenticateAdmin", request, {  responseType: 'text' as 'json' });
   }

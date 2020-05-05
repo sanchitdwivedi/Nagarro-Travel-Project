@@ -19,5 +19,4 @@ export class Ticket {
     status: string;
     commentByAdmin: string;
     user: User;
-    // documentUploaded: string;
 }

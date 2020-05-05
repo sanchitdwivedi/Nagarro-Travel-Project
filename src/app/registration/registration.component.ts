@@ -818,14 +818,10 @@ export class RegistrationComponent implements OnInit {
       
       this.userService.updateUser(this.user).subscribe(
         data => {
-          // console.log(data)
-          // console.log("response recieved"),
-          // sessionStorage.setItem('token', 'abc-qwe')
           this._router.navigate(['/user'])
         },
         error => {
           console.log(error)
-          // console.log("exception occured");
           this.msg = 'User with this emailId already exist!';
         }
       )
@@ -833,19 +829,10 @@ export class RegistrationComponent implements OnInit {
     else{
       this.registrationService.registerUserFromRemote(this.user).subscribe(
         data => {
-          // console.log(data)
-          // console.log("response recieved"),
-
-          // sessionStorage.setItem('token', 'abc-qwe')
-          // this.userService.setCurrentUserId(data.userId)
           this.authenticate({"userName": data.email, "password": data.password});
-          // sessionStorage.setItem('id', data.userId)
-          // this.userService.setLoggedInUserId(data.userId)
-          // this._router.navigate(['/user'])
         },
         error => {
           console.log(error)
-          // console.log("exception occured");
           this.msg = 'User with this emailId already exist!';
         }
       )

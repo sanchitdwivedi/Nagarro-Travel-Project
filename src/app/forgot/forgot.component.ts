@@ -21,13 +21,9 @@ export class ForgotComponent implements OnInit {
     this.msg = 'Please wait...';
     this.userService.getUsernameAndPassword(f.value.email).subscribe(
       data => {
-        // console.log(data)
-        // console.log("response recieved"),
         this.msg = 'A mail has been sent to the registered emailId';
       },
       error => {
-        // console.log(error)
-        // console.log("exception occured");
         this.msg = 'User with this emailId does not exist!';
       }
     )

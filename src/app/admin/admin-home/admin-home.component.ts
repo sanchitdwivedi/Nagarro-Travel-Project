@@ -14,7 +14,6 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class AdminHomeComponent implements OnInit {
 
-  // isLoggedIn = false;
   displayedColumns: string[] = ['ticketId', 'priority', 'userName', 'submitDate', 'projectName', 'travelCity', 'status', 'user.businessUnit'];
   dataSource: MatTableDataSource<Ticket>;
  
@@ -29,17 +28,12 @@ export class AdminHomeComponent implements OnInit {
     private adminService: AdminService) { }
 
   ngOnInit(): void {
-    // this.isLoggedIn = this.adminService.isLoggedIn();
-    // if(!this.isLoggedIn){
-    //   this.router.navigate(['/admin'])
-    // }
     this.showTickets();
   }
 
   public showTickets(){
     this.ticketService.getAllTickets().subscribe(
       data => {
-        // console.log(data)
         this.tickets = data.filter(
           ticket => {
             return (ticket.status === 'Submitted' || ticket.status === 'Re-Submitted' || ticket.status === 'In Process')

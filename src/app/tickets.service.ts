@@ -43,7 +43,6 @@ export class TicketsService {
   }
 
   public updateUserTicket(requestType: string, ticket: Ticket): Observable<any>{
-    // this.currentUserId = JSON.parse(sessionStorage.getItem('id')).userId;
     this.currentUserId = ticket.user.userId
     this.currentTicketId = JSON.parse(sessionStorage.getItem(requestType)).ticketId;
     return this._http.put(`http://localhost:8080/api/users/${this.currentUserId}/tickets/${this.currentTicketId}`, ticket);

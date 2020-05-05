@@ -18,24 +18,12 @@ export class TicketConfirmationComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    // this.userService.getLoggedInUser().subscribe(
-    //   data => {
-    //     this.getTicketDetails(data.userId)
-    //   },
-    //   error => {
-    //     // console.log(error)
-    //     // console.log("exception occured");
-    //     this.router.navigate(['/login'])
-    //   }
-    // )
-
     this.getTicketDetails();
   }
 
   public getTicketDetails(){
     this.ticketService.getUserTicketById('ticketId').subscribe(
       data => {
-        // console.log(data)
         this.ticket = data;
       },
       error => {
