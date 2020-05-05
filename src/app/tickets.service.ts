@@ -13,6 +13,8 @@ export class TicketsService {
   clickedTicketId: number;
   adminClickedTicket: number;
 
+  private readonly JWT_TOKEN = 'JWT_TOKEN';
+
   constructor(private _http : HttpClient) { }
 
   public getAllTickets(): Observable<any>{

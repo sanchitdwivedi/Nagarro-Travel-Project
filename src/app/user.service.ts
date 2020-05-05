@@ -32,22 +32,26 @@ export class UserService {
     return this._http.put<any>(`http://localhost:8080/api/users/${this.currentUserId}`, user);
   }
 
-  public isLoggedIn(){
-    return !!sessionStorage.getItem('token');
+  public getUserByEmail(email: string): Observable<any> {
+    return this._http.get(`http://localhost:8080/api/users/${email}`);
   }
+
+  // public isLoggedIn(){
+  //   return !!sessionStorage.getItem('token');
+  // }
 
   // public setLoggedInUserId(newUserId: number) {
   //   // this.user.next(newUserId);
   //   this.userId = newUserId;
   // }
 
-  logout() {
-    sessionStorage.removeItem('token');
-    sessionStorage.removeItem('id');
-    sessionStorage.removeItem('ticketId');
-    sessionStorage.removeItem('clickedTicketId');
-    // this.userId = null;
-  }
+  // logout() {
+  //   sessionStorage.removeItem('token');
+  //   sessionStorage.removeItem('id');
+  //   sessionStorage.removeItem('ticketId');
+  //   sessionStorage.removeItem('clickedTicketId');
+  //   // this.userId = null;
+  // }
 
   public setCurrentUserId(userId: number){
     sessionStorage.setItem('id', JSON.stringify({userId: userId}))

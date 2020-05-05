@@ -30,10 +30,10 @@ export class TicketComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.userService.isLoggedIn();
-    if(!this.isLoggedIn){
-      this.router.navigate(['/login'])
-    }
+    // this.isLoggedIn = this.userService.isLoggedIn();
+    // if(!this.isLoggedIn){
+    //   this.router.navigate(['/login'])
+    // }
     
     // this.userService.getLoggedInUser().subscribe(
     //   data => {
@@ -61,7 +61,7 @@ export class TicketComponent implements OnInit {
         this.pages = new Array(data['totalPages']);
       },
       error => {
-        // console.log(error)
+        console.log(error)
         // console.log("exception occured");
         this.router.navigate(['/login'])
       }

@@ -14,6 +14,7 @@ import { AdminLoginComponent } from './login/admin-login/admin-login.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { DetailsComponent } from './admin/details/details.component';
 import { EditTicketComponent } from './ticket/edit-ticket/edit-ticket.component';
+import { AdminGuard } from './admin.guard';
 
 
 const routes: Routes = [
@@ -30,8 +31,8 @@ const routes: Routes = [
   {path: 'home/tickets/details', component: TicketDetailsComponent, canActivate: [AuthGuard]},
   {path: 'home/tickets/edit', component: EditTicketComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminLoginComponent },
-  { path: 'admin/home', component: AdminHomeComponent},
-  { path: 'admin/home/details', component: DetailsComponent}
+  { path: 'admin/home', component: AdminHomeComponent, canActivate: [AdminGuard]},
+  { path: 'admin/home/details', component: DetailsComponent, canActivate: [AdminGuard]}
 ];
 
 @NgModule({

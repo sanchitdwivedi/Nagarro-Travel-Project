@@ -18,7 +18,7 @@
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" name="email" ngModel aria-describedby="emailHelp" placeholder="you@nagarro.com"
-      pattern=".+@gmail.com" required>
+      pattern=".+@nagarro.com" required>
     </div>
     <div class="form-group">
         <label for="telephone">Telephone</label>
@@ -41,30 +41,32 @@
         <input type="text" class="form-control" id="city" name="city" ngModel placeholder="City" required>
     </div>
     <div class="form-group col-md-4">
+        <label for="country">Country</label>
+        <select id="country" class="form-control" name="country" ngModel (change)="changeCountry($event.target.value)" required>
+          <!-- <option selected>India</option>
+          <option>Germany</option>
+          <option>America</option>
+          <option>China</option>
+          <option>New Zealand</option>
+          <option>Canada</option> -->
+          <option *ngFor="let x of Countries">{{ x.country }}</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
         <label for="inputState">State</label>
         <select id="inputState" class="form-control" name="state" ngModel required>
-          <option selected>Punjab</option>
+          <!-- <option selected>Punjab</option>
           <option>Haryana</option>
           <option>Himachal Pradesh</option>
           <option>Bangalore</option>
           <option>Chennai</option>
-          <option>Karnataka</option>
+          <option>Karnataka</option> -->
+          <option *ngFor="let state of States">{{state}}</option>>
         </select>
     </div>
     <div class="form-group">
         <label for="zip">Zip</label>
         <input type="number" class="form-control" id="zip" name="zip" ngModel placeholder="Zip" required>
-    </div>
-    <div class="form-group col-md-4">
-        <label for="country">Country</label>
-        <select id="country" class="form-control" name="country" ngModel required>
-          <option selected>India</option>
-          <option>Germany</option>
-          <option>America</option>
-          <option>China</option>
-          <option>New Zealand</option>
-          <option>Canada</option>
-        </select>
     </div>
     <!-- <button [disabled]="loginForm.form.invalid" type="submit" class="btn btn-primary">Submit</button> -->
     <div class="form-group">

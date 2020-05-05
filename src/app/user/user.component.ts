@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { RegistrationService } from '../registration.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user',
@@ -13,18 +14,19 @@ export class UserComponent implements OnInit {
 
   user: User;
   
-  isLoggedIn = false;
+  // isLoggedIn = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private userService : UserService,
-    private registrationService: RegistrationService) { }
+    private registrationService: RegistrationService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.userService.isLoggedIn();
-    if(!this.isLoggedIn){
-      this.router.navigate(['/login'])
-    }
+    // this.isLoggedIn = this.userService.isLoggedIn();
+    // if(!this.isLoggedIn){
+    //   this.router.navigate(['/login'])
+    // }
     this.userService.getLoggedInUser().subscribe(
       data => {
         this.user = data;
@@ -39,7 +41,7 @@ export class UserComponent implements OnInit {
 
   public returnHomePage(){
     this.registrationService.setEdittingUser(false);
-    this.userService.logout();
+    this.authService.logout();
     this.router.navigate(['/login'])
   }
 

@@ -2,5 +2,5 @@
     <li><a class="active" [routerLink]="['/home']">Welcome {{userName}}</a></li>
     <li><a [routerLink]="['/home/newTicket']">New Ticket</a></li>
     <li><a [routerLink]="['/home/tickets']">View Tickets</a></li>
-    <li style="float: right;"><a *ngIf="isLoggedIn" class="nav-link" [routerLink]="['/logout']" (click)=handleLogout()>Logout</a></li>
+    <li style="float: right;"><a  [routerLink]="['/logout']" (click)=handleLogout()>Logout</a></li>
 </ul>

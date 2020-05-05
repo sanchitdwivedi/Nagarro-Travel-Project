@@ -15,23 +15,25 @@
         <select id="priority" class="form-control" name="priority" [(ngModel)]="ticket.priority" required>
             <option selected>Normal</option>
             <option>Urgent</option>
-            <option>Intermediate</option>
+            <option>Immediate</option>
         </select>
     </div>
     <div class="form-group">
         <label for="travelCity">Travel City</label>
         <select id="travelCity" class="form-control" name="travelCity" [(ngModel)]="ticket.travelCity" required>
-            <option selected>Gurgaon</option>
+            <!-- <option selected>Gurgaon</option>
             <option>Nangal</option>
-            <option>Una</option>
+            <option>Una</option> -->
+            <option *ngFor="let city of cities">{{city}}</option>>
         </select>
     </div>
     <div class="form-group">
         <label for="fromLocation">From Location</label>
         <select id="fromLocation" class="form-control" name="fromLocation" [(ngModel)]="ticket.fromLocation" required>
-            <option selected>Gurgaon</option>
+            <!-- <option selected>Gurgaon</option>
             <option>Nangal</option>
-            <option>Una</option>
+            <option>Una</option> -->
+            <option *ngFor="let city of cities">{{city}}</option>>
         </select>
     </div>
     <div class="form-group">
